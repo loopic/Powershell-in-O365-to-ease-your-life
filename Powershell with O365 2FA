@@ -6,8 +6,9 @@ After playing around with the different methods of importing and saving modules 
 
 For the sake of "simplicity" when first opening poweshell and loading my start-up profile, I've decided to connect all the modules necessary for the management of Office 365 Services at once.
 
-This equals to me having to confirm my credentials 
+This equals to me having to confirm my credentials 4 times after I've opened powershell window with my domain admin account.
 
+Heres whats happening everytime I run powershell:
 
 1 - Local Admin credentials to run Powershell with high privileges;
 2 - O365 Global Admin Credentials + one-time pass to start a new Exchange Online Powershell Session;
@@ -18,6 +19,18 @@ This equals to me having to confirm my credentials
 5* Prior to the connection to ExchangeOnline, you need to install the new module Exchange Online Powershell V2 with the command:
 Install-Module -Name ExchangeOnlineManagement
 
-A copy of my Powershell profile script will be available in this repository.
+Here is a full list of the modules and their command available to me once I've done my authentications:
+- AzureAD
+- ExchangeOnlineManagement
+- Microsoft.Exchange.Management.ExoPowershellModule
+- Microsoft.PowerShell.Management
+- Microsoft.Powershell.Utility
+- MSOnline
+- PackageManagement
+- PowerShellGet
+- PSReadline
+- tmp_yi3i3xwu.rxf (Exchange Online)
+
+A copy of my Powershell startup profile script will be available in this repository.
 
 Loopic
