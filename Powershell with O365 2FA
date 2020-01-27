@@ -1,0 +1,36 @@
+Because of the 2 factor authentication, O365 modules in powershell need to be imported every time a new powershell session is started.
+
+There is no easy way of storing the credentials since the use of a one-time password prevents it.
+
+After playing around with the different methods of importing and saving modules in powershell with my 2 factor authentication, I have come to the conclusion that I will have no choice for the modules to work than to insert my credentials & 1 time password manually every time that I want to add a module in my powershell session.
+
+For the sake of "simplicity" when first opening poweshell and loading my start-up profile, I've decided to connect all the modules necessary for the management of Office 365 Services at once.
+
+This equals to me having to confirm my credentials 4 times after I've opened powershell window with my domain admin account.
+
+Heres whats happening everytime I run powershell:
+
+1 - Local Admin credentials to run Powershell with high privileges;
+2 - O365 Global Admin Credentials + one-time pass to start a new Exchange Online Powershell Session;
+3 - O365 Global Admin Credentials + one-time pass to connect to MS online services;
+4 - O365 Global Admin Credentials + one-time pass to connect to AzureAD services;
+5* - O365 Global Admin Credentials + one-time pass to connect to ExchangeOnline services;
+
+5* Prior to the connection to ExchangeOnline, you need to install the new module Exchange Online Powershell V2 with the command:
+Install-Module -Name ExchangeOnlineManagement
+
+Here is a full list of the modules and their command available to me once I've done my authentications:
+- AzureAD
+- ExchangeOnlineManagement
+- Microsoft.Exchange.Management.ExoPowershellModule
+- Microsoft.PowerShell.Management
+- Microsoft.Powershell.Utility
+- MSOnline
+- PackageManagement
+- PowerShellGet
+- PSReadline
+- tmp_xxxxxxxx.rxf (Exchange Online)
+
+A copy of my Powershell startup profile script will be available in this repository.
+
+Loopic
