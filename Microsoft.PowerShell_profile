@@ -1,0 +1,15 @@
+Import-Module $((Get-ChildItem -Path $($env:LOCALAPPDATA+"\Apps\2.0\") `
+-Filter Microsoft.Exchange.Management.ExoPowershellModule.dll -Recurse ).FullName|?{$_ -notmatch "_none_"} `
+|select -First 1)
+
+New-ExoPSSession
+
+$S = Get-PSSession -Id 1
+Import-PSSession $S
+Install-Module -Name AzureAD
+Connect-AzureAD
+
+Install-Module MSOnline
+Import-Module MSOnline
+Connect-MsolService
+Connect-ExchangeOnline
