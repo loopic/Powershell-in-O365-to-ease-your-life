@@ -1,0 +1,8 @@
+$DoubleName = read-host "insert double name"
+$FirstNameLetter =  $DoubleName.Substring(0,1)
+$separator = " ","-"
+if (($DoubleName -match $separator[0]) -or ($DoubleName -match $separator[1])){
+$part1firstname, $part2firstname = ($DoubleName.ToLower()).Split($separator)
+$firstletterpart2 = $part2firstname.SubString(0,1)
+$Parts1 = ("$FirstNameLetter$firstletterpart2")
+} else {$Parts1 = ("$FirstNameLetter")}
